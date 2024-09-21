@@ -1,0 +1,149 @@
+html,body{
+     height: 100%;
+     margin: 0;
+     padding: 0;
+     color: antiquewhite;
+}
+
+body{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     background-color: rgb(23, 19, 69);
+     z-index: -10000;
+}
+
+
+.container{
+
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     /* border: 1px solid black; */
+     padding: 1rem;
+     width: 19rem;
+     background-color: rgb(23, 19, 69);
+     color: aliceblue;
+     z-index: 1;
+     
+}
+
+.title{
+     display: flex;
+     padding: 1rem;
+}
+
+.searchbox{
+     display: flex;
+     background-color:rgb(18, 15, 60) ;
+     width: 300px;
+     height: 35px;
+     border: none;
+     justify-content: center;
+     align-items: center;
+     color: antiquewhite;
+     border-radius: 10px;
+     cursor: text;
+     text-align: center;
+
+     filter: brightness(1);
+     transition: filter 0.3s ease;
+}
+
+.searchbox:hover{
+     filter: brightness(0.9);
+}
+
+
+
+.todocontainer{
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     padding: 1rem;
+}
+
+
+
+.todo{
+     padding-left: 1rem;
+     margin: 0.1rem;
+     display: flex;
+     justify-content:space-between;
+     align-items:center;
+     width: 300px;
+     height: 50px;
+     
+     background-color: rgb(16, 12, 65);
+     border-radius: 10px;
+     cursor: pointer;
+
+     transition: 0.7s;
+}
+
+.todo:hover{
+     font-size: 1.04rem;
+}
+
+.cop{
+     display: flex;
+     margin-right: 1rem;
+
+     filter: brightness(0.5);
+     transition: filter 0.27s ease;
+}
+
+.cop:hover{
+     filter: brightness(1);
+}
+
+
+
+
+.form{
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
+
+
+.newtodotext{
+     display: flex;
+     background-color:rgb(18, 15, 60) ;
+     width: 300px;
+     height: 35px;
+     border: none;
+     border-radius: 10px;
+     color: antiquewhite;
+     justify-content: center;
+     align-items: center;
+     text-align: center;
+     font-size: 0.7rem;
+
+     filter: brightness(1);
+     transition: filter 0.3s ease;
+}
+
+.newtodotext:hover{
+     filter: brightness(0.9);
+}
+
+
+
+
+
+.addto{
+     display:flex ;
+     
+     height: 35px;
+     width: 90px;
+     justify-content: center;
+     align-items: center;
+     color: antiquewhite;
+     background-color:rgb(18, 15, 60) ;
+     
+     border: none;
+     border-radius: 10px;
+     cursor: pointer;
+}
+
