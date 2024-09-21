@@ -102,7 +102,10 @@ addbutton.addEventListener('click',()=>{
           todocontainer.prepend(newtodoelement); //adding new element on top
           newTodosName.value="Add ToDo's..";
      }
-     
+     else{
+          alert('Please write a ToDo.');
+          
+     }
      
 });
 
