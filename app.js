@@ -44,6 +44,47 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 
 
+
+
+
+
+
+
+searchBox.addEventListener('input',()=>{
+    const searcTerm=searchBox.value.toLowerCase();
+    const todoElements= todocontainer.children;
+
+    Array.from(todoElements).forEach(todo =>{
+        const todoText=todo.textContent.toLowerCase();
+
+
+        if(todoText.includes(searcTerm)){
+            todo.style.display='flex';
+        }
+        else{
+            todo.style.display='none';
+        }
+
+    });
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 newTodosName.addEventListener('focus', () => {
      if (newTodosName.value === "Add ToDo's..") {
          newTodosName.value = ' ';                      // Clear the default text
