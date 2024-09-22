@@ -51,14 +51,14 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 
 searchBox.addEventListener('input',()=>{
-    const searcTerm=searchBox.value.toLowerCase();
+    const searchTerm=searchBox.value.toLowerCase();
     const todoElements= todocontainer.children;
 
     Array.from(todoElements).forEach(todo =>{
         const todoText=todo.textContent.toLowerCase();
 
 
-        if(todoText.includes(searcTerm)){
+        if(todoText.includes(searchTerm)){
             todo.style.display='flex';
         }
         else{
