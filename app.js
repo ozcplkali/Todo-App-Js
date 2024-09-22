@@ -1,5 +1,9 @@
+let todos = JSON.parse(localStorage.getItem('todosKey')) || [];
+
+
+
 const trashes=document.querySelectorAll('.cop');
-const todos=document.querySelectorAll('.todo');
+// const todos=document.querySelectorAll('.todo');
 const todocontainer=document.querySelector('.todocontainer');
 const addbutton=document.querySelector('.addto');
 
@@ -9,6 +13,34 @@ const body=document.querySelector('body');
 const searchBox=document.querySelector('.searchbox');
 
 const todoValue = newTodosName.value.trim();
+
+
+
+// getting tasks from localStorage
+
+
+document.addEventListener('DOMContentLoaded',()=>{
+    todos.forEach(todo=>{
+        const newTodoElement = document.createElement('div');
+        newTodoElement.textContent = todo;
+        newTodoElement.classList.add('todo');
+
+        const trashIcon = document.createElement('i');
+        trashIcon.classList.add('cop', 'far', 'fa-trash-alt', 'delete');
+        newTodoElement.appendChild(trashIcon);
+
+        trashIcon.addEventListener('click', e => {
+            e.target.parentElement.remove();
+            removeTodoFromLocalStorage(todo);
+        });
+
+        todocontainer.prepend(newTodoElement);
+    });
+});
+
+
+
+
 
 
 
@@ -84,9 +116,21 @@ newTodosName.addEventListener('focus', () => {
 
 
 
+
 addbutton.addEventListener('click',()=>{
+
+     
      const todoValue = newTodosName.value.trim();
+     
+     
      if(todoValue != ' ' && todoValue != "Add ToDo's.."){
+
+        const newTodo = {
+            text: todoValue,
+            id: Date.now()  
+        };
+
+
           const newtodoelement=document.createElement('div');              //creating todos div element
           newtodoelement.textContent=todoValue;                
           newtodoelement.classList.add('todo');
@@ -97,7 +141,11 @@ addbutton.addEventListener('click',()=>{
 
           trashicon.addEventListener('click',e=>{    //adding delete event to trash icon  
           e.target.parentElement.remove();
+          removeTodoFromLocalStorage(todoValue);
+            
           });
+          todos.push(todoValue);
+          localStorage.setItem('todosKey',JSON.stringify(todos));
      
           todocontainer.prepend(newtodoelement); //adding new element on top
           newTodosName.value="Add ToDo's..";
@@ -109,7 +157,10 @@ addbutton.addEventListener('click',()=>{
      
 });
 
-
+function removeTodoFromLocalStorage(todo){
+    todos=todos.filter(t=>t !==todo);
+    localStorage.setItem('todosKey',JSON.stringify(todos));
+}
 
 
 
@@ -119,5 +170,6 @@ addbutton.addEventListener('click',()=>{
 trashes.forEach(trash=> {
      trash.addEventListener('click',e =>{
           e.target.parentElement.remove();
+          removeTodoFromLocalStorage(e.target.parentElement.textContent.trim());
      });
 });
